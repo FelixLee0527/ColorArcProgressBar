@@ -19,7 +19,7 @@
 这是一个可定制的圆形进度条，通过xml参数配置可实现QQ健康中步数的弧形进度显示、仪盘表显示速度、最常见的下载进度条等功能。
 
 ## 效果图
- ![](https://raw.githubusercontent.com/FelixLee0527/ColorArcProgressBar/master/Demo.gif)
+ ![](https://raw.githubusercontent.com/FelixLee0527/ColorArcProgressBar/master/library/Demo.gif)
 
 
 ##2、XML
