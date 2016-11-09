@@ -1,81 +1,82 @@
 # ColorArcProgressBar
 
-[中文版](https://github.com/Shinelw/ColorArcProgressBar/blob/master/README_CHINESE.md)
+###声明：
+#####这个开源组件由shinelw创建，由于使用过程中有一些问题，所以重写了部分功能，并且增加拖动功能，可以当SeekBar使用
 
-This is a customizable circular progressbar.It can achieve the effect of the QQ health's arc progress with XML. What's more, we can use it by only a few codes to do the beautiful and colorful dashboard to show current data.
+#####原作者项目github地址：[https://github.com/Shinelw/ColorArcProgressBar](https://github.com/Shinelw/ColorArcProgressBar)
 
-## Preview
- ![](https://raw.githubusercontent.com/Shinelw/ColorArcProgressBar/master/Demo.gif)
+**修复:**
 
-#Usage
-##1、Add Dependency in gradle
-```
-dependencies {
-    ...
-    compile 'com.github.shinelw.colorarcprogressbar:com.shinelw.library:1.0.3'
-}
-```
+
+ 1. 不能通过XML配置控件的大小，源码里面写死了，写成占屏幕的百分比。
+ 2. 有几个属性的颜色值设置无效。比如默认的弧形背景色
+ 3. 放大缩小控件之后对应的字体没有相应的调整大小
+ 4. 一些属性单词命名修改
+
+
+
+
+这是一个可定制的圆形进度条，通过xml参数配置可实现QQ健康中步数的弧形进度显示、仪盘表显示速度、最常见的下载进度条等功能。
+
+## 效果图
+ ![](https://raw.githubusercontent.com/FelixLee0527/ColorArcProgressBar/master/Demo.gif)
+
+
 ##2、XML
 ```
-<com.shinelw.com.shinelw.library.ColorArcProgressBar
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/bar1"
-        app:is_need_content="true"
-        app:front_color1="@color/colorAccent"
-        app:max_value="100"
-        app:back_width="10dp"
-        app:front_width="10dp"
-        app:total_engle="360"
-        app:is_need_unit="true"
-        app:string_unit="百分比%"
-        app:back_color="@android:color/darker_gray"
-        android:layout_marginBottom="150dp"
-        />
+<com.shinelw.library.ColorArcProgressBar
+            android:id="@+id/bar1"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="150dp"
+            app:bg_arc_color="@color/colorPrimary"
+            app:bg_arc_width="5dp"
+            app:front_color1="#00ff00"
+            app:front_color2="#ffff00"
+            app:front_color3="#ff0000"
+            app:front_width="10dp"
+            app:is_need_content="true"
+            app:is_need_dial="true"
+            app:is_need_title="true"
+            app:is_need_unit="true"
+            app:max_value="100"
+            app:is_seek_enable="true"
+            app:string_title="当前速度"
+            app:string_unit="km/h"
+            app:sweep_angle="270"
+            />
 ```
-##3、Code
+##3、代码
 ```
 progressbar.setCurrentValues(100);
 ```
 
-##4、Customize
-###1）set arc total engle
+##4、自定义
+###1）定义圆弧度数
 ```
- app:total_engle="270"
+ app: sweep_angle ="270"
 ```
-###2）set color gradient
+###2）定义渐变色
 ```
 app:front_color1="#00ff00"
 app:front_color2="#ffff00"
 app:front_color3="#ff0000"
 ```
-###3)set two arc width
+###3)定义两条圆弧的粗细
 ```
-app:back_width="2dp"
+app:bg_arc_width="2dp"
 app:front_width="10dp"
 ```
-###4)set text（title，content，unit） in arc center
+###4)设置圆弧中显示文字
 ```
 app:is_need_unit="true"
 app:string_unit="步"
 app:is_need_title="true"
 app:string_title="截止当前已走"
 ```
-preview like QQ health：
-
-![](https://raw.githubusercontent.com/Shinelw/ColorArcProgressBar/master/demo_qq.gif)
-
-###5）set dial
-```
-  app:is_need_dial="true"
-```
-
-preview like dashboard：
-
-![](https://raw.githubusercontent.com/Shinelw/ColorArcProgressBar/master/demo_dashboard.gif)
 
 
 
-A circle ProgressBar/SeekBar
+
 
